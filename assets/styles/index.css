@@ -27,17 +27,29 @@ form{
     transition: all .5s ease-in-out;
 }
 
+@keyframes scaleUp{
+    from{
+        transform: scale(0);
+    }to{
+        transform: scale(1);
+    }
+}
+
+form:not(:focus){
+    animation: scaleUp .5s ease-in-out;
+}
+
 form h1{
     text-align: center;
 }
 
 form label{
     margin: 5px 0;
+    margin-bottom: 15px;
 }
 
 form input{
     padding: 1em;
-    margin-bottom: 15px;
     border-radius: .5em;
     border: none;
     background-color: #F2F2F2;
@@ -55,6 +67,7 @@ form button[type=submit]{
     padding: 1em;
     border-radius: 1.5em;
     transition: all .5s ease-in-out;
+    margin-top: 15px;
 }
 
 form button[type=submit]:hover{
@@ -101,8 +114,74 @@ form section div button:hover{
     border-radius: 100%;
 }
 
+span{
+    color: #ae0000;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 5px auto;
+}
+
+#black-div{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(0,0,0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#modal{
+    background-color: white;
+    width: 75%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+@keyframes slideDown{
+    from{
+        transform: translateY(-100%);
+    }to{
+        transform: translateY(0);
+    }
+}
+
+#modal:not(focus){
+    animation: slideDown .5s ease-in-out;
+}
+
+#modal h1{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#modal button{
+    background-color: #000000;
+    color: white;
+    padding: .7em;
+    border-radius: .5em;
+    border:none;
+    transition: all .3s ease-in-out;
+}
+
+#modal button:hover{
+    background-color: #2a2a2a;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 762px){
     form{
+        width: 40%;
+    }
+
+    #modal{
         width: 40%;
     }
 }
